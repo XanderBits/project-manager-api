@@ -1,5 +1,5 @@
-const User = require('../../../models/users')
-const { buildErrObject } = require('../../../middlewares/utils/buildErrorObject')
+const User = require('../../../models/users');
+const { buildErrObject } = require('../../../middlewares/utils/buildErrorObject');
 
 /**
  * Checks User model if user with an specific email exists
@@ -22,7 +22,7 @@ const emailExists = (email = '') => {
                 resolve(false)
             }
         )
-    })
+    });
 }
 
 module.exports = { emailExists }

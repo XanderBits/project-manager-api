@@ -5,8 +5,9 @@ const {dbConnect} = require('./config/mongo.js')
 
 const PORT = process.env.PORT || 3000
 
-app.use('/', require('./app/routes/index'))
+app.use(require('./app/routes'))
 app.use(express.json())
+app.use(express.urlencoded({extended : true}));
 
 dbConnect()
 

@@ -21,7 +21,8 @@ const UserSchema = new mongoose.Schema(
         },
         password:  {
             type: String,
-            required : true
+            required : true,
+            select : false
         },
         role: {
             type: String,
@@ -42,7 +43,7 @@ const hash = (user, salt, next) => {
         }
         user.password = newHash
         return next()
-        })
+        });
     }
 
 const genSalt = (user, SALT_ROUND, next) => {
@@ -51,7 +52,7 @@ const genSalt = (user, SALT_ROUND, next) => {
             return next(err)
         }
         return hash(user, salt, next)
-    })
+    });
 }
 
 UserSchema.pre('save', function (next) {
@@ -61,6 +62,6 @@ UserSchema.pre('save', function (next) {
         return next()
     }
     return genSalt(that, SALT_ROUND, next)
-})
+});
 
 module.exports = mongoose.model('users', UserSchema);

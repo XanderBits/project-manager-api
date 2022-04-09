@@ -2,18 +2,22 @@
 const express = require('express')
 const router = express.Router()
 const fs = require('fs')
-const routesPath = `${__dirname}`
-const { removeExtensionFromFile } = require('../middlewares/utils/removeExtensionFromFile')
+const routesPath = `${__dirname}/`
+const { removeExtensionFromFile } = require('../middlewares/utils/removeExtensionFromFile');
+
+
+// Load Auth route
+router.use('/', require('./auth'))
 
 // Loop routes path and loads every file as a route except this file and Auth route 
-fs.readdirSync(routesPath).filter( (file) => {
+fs.readdirSync(routesPath).filter((file) => {
     // Take filename and remove last part (extension)
     const routeFile = removeExtensionFromFile(file)
-
+    
     return routeFile !== 'index' && routeFile !== 'auth'
-        ? router.use(`${routeFile}`, require('./${routeFile}'))
+        ? router.use(`/${routeFile}`, require(`./${routeFile}`))
         : ''
-})
+});
 
 /*
  * Handle 404 error
@@ -23,8 +27,8 @@ router.use('*', (req, res) => {
         errors: {
             msg: 'URL_NOT_FOUND'
         }
-    })
-})
+    });
+});
 
 
-module.exports = router 
+module.exports = router;
