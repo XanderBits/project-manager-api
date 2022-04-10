@@ -1,5 +1,5 @@
 const User = require('../../../models/users');
-const { buildErrObject } = require('../../../middlewares/utils/buildErrorObject');
+const { buildErrorObject } = require('../../../middlewares/utils/buildErrorObject');
 
 /**  
 * Register a new user in database
@@ -17,7 +17,7 @@ const registerUser = (req = {}) => {
         })
         user.save((err, item) => {
             if(err){
-                reject(buildErrObject(422, err.message))
+                reject(buildErrorObject(422, err.message))
             }
             resolve(item)
         })

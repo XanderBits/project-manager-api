@@ -1,5 +1,5 @@
 const User = require('../../../models/users');
-const { buildErrObject } = require('../../../middlewares/utils/buildErrorObject');
+const { buildErrorObject } = require('../../../middlewares/utils/buildErrorObject');
 
 /**
  * Checks User model if user with an specific email exists
@@ -13,11 +13,11 @@ const emailExists = (email = '') => {
             },
             (err, item) => {
                 if (err) {
-                    return reject(buildErrObject(422, err.message))
+                    return reject(buildErrorObject(422, err.message))
                 }
 
                 if (item) {
-                    return reject(buildErrObject(422, 'EMAIL_ALREADY_EXISTS'))
+                    return reject(buildErrorObject(422, 'EMAIL_ALREADY_EXISTS'))
                 }
                 resolve(false)
             }
