@@ -1,5 +1,5 @@
 const { matchedData } = require('express-validator');
-const { handleError } = require('../../middlewares/utils/handleError');
+const { handleError } = require('../../middlewares/utils');
 const { registerUser } = require('../../../app/controllers/auth/helpers/registerUser');
 const { emailExists } = require('../../../app/controllers/auth/helpers/emailExists');
 

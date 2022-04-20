@@ -1,4 +1,4 @@
-const { validateResult } = require('../../../middlewares/utils/validateResult');
+const { validateResult } = require('../../../middlewares/utils');
 const { check } = require('express-validator');
 
 /**

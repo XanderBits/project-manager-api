@@ -1,5 +1,5 @@
 const User = require('../../../models/users');
-const { buildErrorObject } = require('../../../middlewares/utils/buildErrorObject');
+const { buildErrorObject } = require('../../../middlewares/utils');
 
 /**  
 * Register a new user in database
