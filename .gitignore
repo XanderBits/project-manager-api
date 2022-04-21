@@ -3,4 +3,3 @@ node_modules/
 
 # dotenv Environment Variables File
 .env
-.env.example
