@@ -1,7 +1,7 @@
 const { matchedData } = require('express-validator');
 const { handleError } = require('../../middlewares/utils');
-const { registerUser } = require('../../../app/controllers/auth/helpers/registerUser');
-const { emailExists } = require('../../../app/controllers/auth/helpers/emailExists');
+const { registerUser } = require('../../../app/controllers/auth/helpers');
+const { emailExists } = require('../../../app/controllers/auth/helpers');
 
 /**
  * Register function called by route
