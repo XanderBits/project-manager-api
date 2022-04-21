@@ -1,4 +1,4 @@
-const { buildErrObject } = require('../../middleware/utils')
+const { buildErrorObject } = require('../utils')
 
 /**
  * Checks is password matches
@@ -10,7 +10,7 @@ const checkPassword = (password = '', user = {}) => {
     return new Promise((resolve, reject) => {
         user.comparePassword(password, (err, isMatch) => {
             if (err) {
-                return reject(buildErrObject(422, err.message))
+                return reject(buildErrorObject(422, err.message))
             }
             if (!isMatch) {
                 resolve(false)

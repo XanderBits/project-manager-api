@@ -1,5 +1,5 @@
 const User = require('../../../models/users');
-const { itemNotFound  } = require('./itemNotFound');
+const { itemNotFound  } = require('../../../middlewares/utils');
 
 const findUser = (email = '') => {
     return new Promise((resolve, reject) => {

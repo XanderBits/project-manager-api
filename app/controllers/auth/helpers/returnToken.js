@@ -10,7 +10,7 @@ const { generateToken } = require('./generateToken');
 const returnToken = (user = {}) => {
     return new Promise((resolve,reject) => {
         try{
-            const userInfo = await setUserInfo(user)
+            const userInfo = setUserInfo(user)
             resolve({
                 token : generateToken(user._id),
                 user : userInfo

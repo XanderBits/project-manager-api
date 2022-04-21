@@ -7,7 +7,7 @@ const { itemNotFound  } = require('./itemNotFound');
 module.exports = { 
     buildErrorObject,
     handleError,
+    itemNotFound,
     removeExtensionFromFile,
-    validateResult,
-    itemNotFound 
+    validateResult
 }
