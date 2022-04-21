@@ -65,4 +65,10 @@ UserSchema.pre('save', function (next) {
     return genSalt(that, SALT_ROUND, next)
 });
 
+UserSchema.methods.comparePassword = function (passwordAttempt, cb) {
+    bcrypt.compare(passwordAttempt, this.password, (err, isMatch) =>
+        err ? cb(err) : cb(null, isMatch)
+    )
+}
+
 module.exports = mongoose.model('users', UserSchema);
