@@ -5,7 +5,9 @@
  */
 
 const handleError = (res, err) => {
-    res.status(err.code).json({
+    const status = err.status || 500;
+
+    res.status(status).json({   
         errors: {
         msg: err.message
         }

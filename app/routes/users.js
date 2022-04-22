@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router()
 const User = require('./../models/users');
 
-router.get('/users', async (req,res) => { 
+router.get('/usersList', async (req,res) => { 
     result = searchUserList();
     
     result.then(list => {

@@ -3,6 +3,7 @@ const { matchedData } = require('express-validator');
 const { findUser } = require('../auth/helpers/findUser');
 const { checkPassword } = require('../../middlewares/auth/checkPassword');
 const { returnToken } = require('../../controllers/auth/helpers');
+const { buildErrorObject } = require('../../middlewares/utils')
 /**
  * Login function called by route
  * @param {Object} req - request object
@@ -15,7 +16,7 @@ const login = async (req, res) => {
         const user = await findUser(data.email)
         const isPasswordMatch = await checkPassword(data.password, user)
         if (!isPasswordMatch){
-            return handleError(res, buildErrObject(409, 'WRONG_PASSWORD'))
+            return handleError(res, buildErrorObject(409, 'WRONG_PASSWORD'))
         }else{
             res.status(200).json(await returnToken(user))
         }

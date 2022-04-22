@@ -8,7 +8,7 @@ const { buildErrorObject } = require('../utils')
  */
 const checkPassword = (password = '', user = {}) => {
     return new Promise((resolve, reject) => {
-        user.comparePassword(password, (err, isMatch) => {
+        user.comparePassword(password,(err, isMatch) => {
             if (err) {
                 return reject(buildErrorObject(422, err.message))
             }

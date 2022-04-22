@@ -10,7 +10,7 @@ const generateToken = (user = '') => {
         const expiration = Math.floor(Date.now() / 1000) + 60 * process.env.JWT_EXPIRATION_IN_MINUTES
 
     // returns signed token
-        jwt.sign({
+        return jwt.sign({
             data: {
                 _id: user
             },

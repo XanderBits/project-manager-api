@@ -10,8 +10,7 @@ const setUserInfo = (req = {}) => {
             name:       req.name,
             lastname :  req.lastname,
             email:      req.email,
-            role:       req.role,
-            verified:   req.verified
+            role:       req.role,   
         }
         resolve(user)
     })
